@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/testT\xE9l\xE9portation.unity"
+    guid: 9712553fb71615d4e922862f51736c78
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 2356368c134507d4f98b285d5aede25f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 22a8fed503efc9f429b80b233607c230, type: 2}
