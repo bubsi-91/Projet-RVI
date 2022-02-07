@@ -108,7 +108,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 23.8
+    agentSlope: 24.7
     agentClimb: 1
     ledgeDropHeight: 2
     maxJumpAcrossDistance: 0
@@ -18110,8 +18110,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077580484}
-  m_LocalRotation: {x: -0.2545799, y: -0.4599216, z: -0.13964547, w: 0.8391426}
-  m_LocalPosition: {x: 95.5446, y: -18.081257, z: -262.0675}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 86.03747, y: -11.908302, z: -260.7931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190702228}
@@ -20909,8 +20909,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279339828}
-  m_LocalRotation: {x: -0.2545799, y: -0.4599216, z: -0.13964547, w: 0.8391426}
-  m_LocalPosition: {x: 95.5446, y: -18.081257, z: -262.0675}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 86.03747, y: -11.908302, z: -260.7931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190702228}
@@ -27694,8 +27694,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747291417}
-  m_LocalRotation: {x: -0.2545799, y: -0.4599216, z: -0.13964547, w: 0.8391426}
-  m_LocalPosition: {x: 95.5446, y: -18.081257, z: -262.0675}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 86.03747, y: -11.908302, z: -260.7931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190702228}
@@ -30812,8 +30812,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015488835}
-  m_LocalRotation: {x: -0.2545799, y: -0.4599216, z: -0.13964547, w: 0.8391426}
-  m_LocalPosition: {x: 95.5446, y: -18.081257, z: -262.0675}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 86.03747, y: -11.908302, z: -260.7931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190702228}
@@ -31729,8 +31729,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075402716}
-  m_LocalRotation: {x: -0.2545799, y: -0.4599216, z: -0.13964547, w: 0.8391426}
-  m_LocalPosition: {x: 95.5446, y: -18.081257, z: -262.0675}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 86.03747, y: -11.908302, z: -260.7931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190702228}
@@ -32311,6 +32311,10 @@ PrefabInstance:
     - target: {fileID: 1002822025697841632, guid: 2e984db5e032e8a4081d3d5dffea05c2, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002822025697841632, guid: 2e984db5e032e8a4081d3d5dffea05c2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7500001
       objectReference: {fileID: 0}
     - target: {fileID: 1002822025697841632, guid: 2e984db5e032e8a4081d3d5dffea05c2, type: 3}
       propertyPath: m_LocalPosition.x
