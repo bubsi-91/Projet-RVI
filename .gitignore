@@ -72,3 +72,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Logs/
 Assets/liblocal
+
+Packages/manifest.json
+Packages/packages-lock.json
+ProjetSettings/ProjectVersion.txt
+
