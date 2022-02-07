@@ -13,17 +13,11 @@ public class PaddleMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("WaterMovement"))
         {
-            Debug.Log("Detected trigger enter for paddle!");
+            Debug.Log("Detected trigger enter for paddle! " + _rigidbody.velocity.z);
             BoatController.AddForce(-_rigidbody.velocity, PaddleOrientation);
         }
     }

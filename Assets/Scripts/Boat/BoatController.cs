@@ -13,11 +13,6 @@ public class BoatController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public enum PaddleOrientation { Right, Left }
 
     public void AddForce(Vector3 force, PaddleOrientation paddleOrientation)
