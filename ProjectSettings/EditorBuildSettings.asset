@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BoatScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/PaddleScene.unity
+    guid: 6d59cc3aca779d74ebcfad7bc4eca44c
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 2356368c134507d4f98b285d5aede25f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 22a8fed503efc9f429b80b233607c230, type: 2}

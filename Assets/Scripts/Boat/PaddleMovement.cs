@@ -13,12 +13,16 @@ public class PaddleMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
+    void Update()
+    {
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("WaterMovement"))
         {
-            Debug.Log("Detected trigger enter for paddle! " + _rigidbody.velocity.z);
-            BoatController.AddForce(-_rigidbody.velocity, PaddleOrientation);
+            Debug.Log("Detected trigger enter for paddle! " + _rigidbody.GetRelativePointVelocity(BoatController.transform.position).z);
+            BoatController.AddForce(new Vector3(0,0,500), PaddleOrientation);
         }
     }
 }
