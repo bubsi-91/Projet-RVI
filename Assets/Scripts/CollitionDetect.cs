@@ -7,16 +7,23 @@ using UnityEngine.SceneManagement;
 
 public class CollitionDetect : MonoBehaviour
 {
+
     private void OnTriggerEnter(Collider other) {
 
 
-        Debug.Log("Collition");
+        Debug.Log("Player detected");
 
         GameOver();
     }
 
     private void GameOver() {
+        StartCoroutine(GameOverRoutine());
+    }
 
+
+    private IEnumerator GameOverRoutine() 
+    {
+        
         //PRINTING CANVA
 
         GameObject myGO;
@@ -42,18 +49,22 @@ public class CollitionDetect : MonoBehaviour
 
         text = myText.AddComponent<Text>();
         text.text = "Un fugitif ! Attrapez le !";
-        text.fontSize = 100;
+        text.fontSize = 50;
+        text.color = Color.white;
 
         // Text position
         rectTransform = text.GetComponent<RectTransform>();
         rectTransform.localPosition = new Vector3(0, 0, 0);
-        rectTransform.sizeDelta = new Vector2(400, 200);
+        rectTransform.sizeDelta = new Vector2(6000, 150);
 
-        
+
+        //STOP THE CHARACTER ANIMATION
+        GameObject.Find("Character_A_Full_Leather_4").GetComponent<Animator>().SetBool("isIdle", true);
+        GameObject.Find("Character_A_Full_Leather_4").GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
+
         //WAIT AND RELOAD SCENE
-        //yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(5);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
     }
 }
