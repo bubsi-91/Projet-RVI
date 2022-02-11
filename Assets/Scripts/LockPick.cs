@@ -7,7 +7,7 @@ public class LockPick : MonoBehaviour
   public GameObject door;
   public GameObject parentReferant;
 
-  //public Transform pickPosition;
+  public GameObject pick;
 
 
   public float maxAngle = 90;
