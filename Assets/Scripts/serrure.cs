@@ -5,9 +5,11 @@ using UnityEngine;
 public class serrure : MonoBehaviour
 {
 
-
     public GameObject door;
-    //public GameObject item;
+    public GameObject perso;
+    //public GameObject self;
+    public Vector3 posPersoInit;
+    public Vector3 rotPersoInit;
 
     private Animator doorAnimator;
 
@@ -31,6 +33,8 @@ public class serrure : MonoBehaviour
       doorAnimator = door.GetComponent<Animator>();
       tryingToUnlock = doorAnimator.GetBool("tryingToUnlock");
 
+      posPersoInit= perso.transform.position;
+      rotPersoInit= perso.transform.localEulerAngles;
 
 
 /*
@@ -81,9 +85,13 @@ public class serrure : MonoBehaviour
 
     void camMoveAway(){
       Debug.Log("camMoveAway");
+      perso.transform.position = posPersoInit;
+      perso.transform.localEulerAngles = rotPersoInit;
     }
     void camMoveCloser(){
       Debug.Log("camMoveCloser");
+      perso.transform.position = transform.position + new Vector3(-0.3f, -2.0f, 0.0f);
+      perso.transform.localEulerAngles = new Vector3(0f, 90f, 0f);
     }
 
 
