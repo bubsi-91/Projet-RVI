@@ -707,6 +707,7 @@ GameObject:
   - component: {fileID: 93445959}
   - component: {fileID: 93445958}
   - component: {fileID: 93445957}
+  - component: {fileID: 93445961}
   m_Layer: 0
   m_Name: LockPick_Saisie
   m_TagString: Untagged
@@ -786,10 +787,28 @@ Transform:
   m_LocalRotation: {x: -0.25249708, y: 0.6604886, z: -0.25249714, w: -0.6604886}
   m_LocalPosition: {x: -0.034699917, y: 0.042399883, z: 0}
   m_LocalScale: {x: 0.100000024, y: 0.10000001, z: 0.10000003}
-  m_Children: []
+  m_Children:
+  - {fileID: 1369013307}
   m_Father: {fileID: 265245780}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93445961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93445956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1667b9bc86283b24dbf1d85962a2c923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 535066131}
+  parentReferant: {fileID: 93445956}
+  pick: {fileID: 62567851}
+  maxAngle: 90
+  lockRange: 10
 --- !u!1 &95625302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,7 +1712,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 93445960}
-  - {fileID: 1369013307}
   m_Father: {fileID: 1534495462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
@@ -1711,7 +1729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 535066131}
   parentReferant: {fileID: 265245779}
-  pick: {fileID: 0}
+  pick: {fileID: 62567851}
   maxAngle: 90
   lockRange: 10
 --- !u!1001 &276566844
@@ -5256,12 +5274,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369013304}
-  m_LocalRotation: {x: -0.25249708, y: 0.6604886, z: -0.25249714, w: -0.6604886}
-  m_LocalPosition: {x: -0.034699917, y: 0.042399883, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 49.999985, y: 50, z: 49.999985}
   m_Children: []
-  m_Father: {fileID: 265245780}
-  m_RootOrder: 1
+  m_Father: {fileID: 93445960}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1373209980
 PrefabInstance:
@@ -7386,7 +7404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092041661}
   m_Layer: 0
-  m_Name: pos_ref_lockpick_1
+  m_Name: pos_ref_lockpick_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

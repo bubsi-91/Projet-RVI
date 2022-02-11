@@ -29,9 +29,10 @@ public class LockPick : MonoBehaviour
 
   // Update is called once per frame
   void Update(){
-    eulerAngle = transform.eulerAngles.x;
+    updatePosPick();
     if(door.GetComponent<Animator>().GetBool("tryingToUnlock") && Input.GetKeyDown("a"))
       unlock();
+
 
   }
 
@@ -44,6 +45,11 @@ public class LockPick : MonoBehaviour
       Debug.Log("Now Unlocked");
       door.GetComponent<Animator>().SetBool("isLocked",false);
     }
+  }
+
+  void updatePosPick(){
+    eulerAngle = pick.transform.eulerAngles.y;
+    parentReferant.transform.localEulerAngles = new Vector3(eulerAngle, 0f, 0f);;//eulerAngles.x = eulerAngle;
   }
 
   void newLock(){
