@@ -46,7 +46,7 @@ public class serrure : MonoBehaviour//XRBaseInteractable
     }
 
     // Update is called once per frame
-    public void Update()
+    void Update()
     {
 
 
@@ -55,18 +55,14 @@ public class serrure : MonoBehaviour//XRBaseInteractable
     }
 
 
-    void OnMouseDown() {
-      Debug.Log("OnMouseDown");
-
-      open();
-    }
+    void OnMouseDown() { open(); }
 
     public void open(){
       Debug.Log("open");
       isOpen   = doorAnimator.GetBool("isOpen");
       isLocked = doorAnimator.GetBool("isLocked");
 
-      Debug.Log("isLocked");
+      //Debug.Log("isLocked");
       if(!isLocked){
         if(!isOpen) { doorAnimator.Play("doorOpen"); }
         else { doorAnimator.Play("doorClose");}
@@ -74,12 +70,14 @@ public class serrure : MonoBehaviour//XRBaseInteractable
         isOpen = !isOpen;
         doorAnimator.SetBool("isOpen", isOpen);
 
+        if(tryingToUnlock){ camMoveAway(); }
+
         Debug.Log("a:"+(isOpen));
         Debug.Log("b:"+doorAnimator.GetBool("isOpen"));
       } else { TryingToUnlock(); }
     }
 
-    public void TryingToUnlock(){
+    void TryingToUnlock(){
       if(tryingToUnlock){ camMoveAway(); }
       else { camMoveCloser(); }
       tryingToUnlock = !tryingToUnlock;
@@ -89,12 +87,12 @@ public class serrure : MonoBehaviour//XRBaseInteractable
      }
 
     void camMoveAway(){
-      Debug.Log("camMoveAway");
+      //Debug.Log("camMoveAway");
       perso.transform.position = posPersoInit;
       perso.transform.localEulerAngles = rotPersoInit;
     }
     void camMoveCloser(){
-      Debug.Log("camMoveCloser");
+      //Debug.Log("camMoveCloser");
       perso.transform.position = transform.position + new Vector3(-0.7f, -2.0f, 0.0f);
       perso.transform.localEulerAngles = new Vector3(0f, 90f, 0f);
     }
