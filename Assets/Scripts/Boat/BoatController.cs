@@ -1,29 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation.Examples;
+using System;
 
 public class BoatController : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
-    public Transform LeftPaddlePosition;
-    public Transform RightPaddlePosition;
-    // Start is called before the first frame update
-    void Start()
+    public float currentSpeed = 0.0f;
+    public PathFollower pathFollower;
+    public float slowdownSpeed = 0.03f;
+    public float maxSpeed = 1.5f;
+
+    void FixedUpdate()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        //slowdown
+        if (Math.Abs(currentSpeed) > 0.005)
+        {
+            float delta = currentSpeed < 0 ? slowdownSpeed : -slowdownSpeed;
+            delta *= Time.deltaTime;
+            currentSpeed += delta;
+        }
+        else
+        {
+            currentSpeed = 0;
+        }
+        pathFollower.speed = currentSpeed;
+        Debug.Log(pathFollower.speed);
     }
 
     public enum PaddleOrientation { Right, Left }
 
-    public void AddForce(Vector3 force, PaddleOrientation paddleOrientation)
+    public void AddForce(float forwardVelocity)
     {
-        if (paddleOrientation == PaddleOrientation.Right)
+        if(Math.Abs(currentSpeed) < maxSpeed)
         {
-            _rigidbody.AddForceAtPosition(force, RightPaddlePosition.position, ForceMode.Force);
-        }
-        else
-        {
-            _rigidbody.AddForceAtPosition(force, LeftPaddlePosition.position, ForceMode.Force);
+            currentSpeed += forwardVelocity;
         }
     }
 }

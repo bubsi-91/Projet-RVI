@@ -4,7 +4,7 @@ using System.Collections;
 public class MyLog : MonoBehaviour
 {
     string myLog;
-    Queue myLogQueue = new Queue(10);
+    Queue myLogQueue = new Queue(20);
 
     void Start()
     {
@@ -24,6 +24,10 @@ public class MyLog : MonoBehaviour
     {
         myLog = logString;
         string newString = "\n [" + type + "] : " + myLog;
+        if(myLogQueue.Count == 15)
+        {
+            myLogQueue.Clear();
+        }
         myLogQueue.Enqueue(newString);
         if (type == LogType.Exception)
         {
@@ -31,6 +35,7 @@ public class MyLog : MonoBehaviour
             myLogQueue.Enqueue(newString);
         }
         myLog = string.Empty;
+        myLogQueue.TrimToSize();
         foreach (string mylog in myLogQueue)
         {
             myLog += mylog;
