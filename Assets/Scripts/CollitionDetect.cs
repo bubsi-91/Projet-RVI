@@ -25,37 +25,28 @@ public class CollitionDetect : MonoBehaviour
     {
         
         //PRINTING CANVA
-
-        GameObject myGO;
-        GameObject myText;
-        Canvas myCanvas;
+        GameObject GameOverText;
         Text text;
         RectTransform rectTransform;
 
-        // Canvas
-        myGO = new GameObject();
-        myGO.name = "GameOverCanva";
-        myGO.AddComponent<Canvas>();
-
-        myCanvas = myGO.GetComponent<Canvas>();
-        myCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        myGO.AddComponent<CanvasScaler>();
-        myGO.AddComponent<GraphicRaycaster>();
+        // Canva
+        Canvas UICanva = GameObject.Find("UICanva").GetComponent<Canvas>();
 
         // Text
-        myText = new GameObject();
-        myText.transform.parent = myGO.transform;
-        myText.name = "Game Over";
+        GameOverText = new GameObject();
+        GameOverText.transform.parent = UICanva.transform;
+        GameOverText.name = "Game Over";
 
-        text = myText.AddComponent<Text>();
+        text = GameOverText.AddComponent<Text>();
         text.text = "Un fugitif ! Attrapez le !";
-        text.fontSize = 50;
+        text.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        text.fontSize = 30;
         text.color = Color.white;
 
         // Text position
         rectTransform = text.GetComponent<RectTransform>();
-        rectTransform.localPosition = new Vector3(0, 0, 0);
-        rectTransform.sizeDelta = new Vector2(6000, 150);
+        rectTransform.localPosition = new Vector3(150, -250, 0);
+        rectTransform.sizeDelta = new Vector2(600, 100);
 
 
         //STOP THE CHARACTER ANIMATION
