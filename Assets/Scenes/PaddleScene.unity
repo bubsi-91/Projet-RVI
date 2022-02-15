@@ -447,6 +447,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2021216369894382330, guid: 8c452cf4abddfc44181be4d2ebd3b23b, type: 3}
   m_PrefabInstance: {fileID: 1786433605}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &667779436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2021216368709796815, guid: 8c452cf4abddfc44181be4d2ebd3b23b, type: 3}
+  m_PrefabInstance: {fileID: 1786433605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &667779437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2021216368709796812, guid: 8c452cf4abddfc44181be4d2ebd3b23b, type: 3}
+  m_PrefabInstance: {fileID: 1786433605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &667779442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667779436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c505d09139026084b9adc42a911ebc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1201826746
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1014,7 @@ MonoBehaviour:
   currentSpeed: 0
   pathFollower: {fileID: 213657036}
   slowdownSpeed: 0.175
+  maxSpeed: 1.5
 --- !u!1 &4412262715765538980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,13 +1422,37 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
+      propertyPath: clampX
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
+      propertyPath: clampY
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
+      propertyPath: clampZ
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
       propertyPath: BoatController
       value: 
       objectReference: {fileID: 4412262715765398885}
     - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
+      propertyPath: paddleTransform
+      value: 
+      objectReference: {fileID: 1310872723}
+    - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
+      propertyPath: forwardTransform
+      value: 
+      objectReference: {fileID: 213657035}
+    - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
       propertyPath: PaddleOrientation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
+      propertyPath: controllerTransform
+      value: 
+      objectReference: {fileID: 667779437}
     - target: {fileID: 3449967755888603736, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
       propertyPath: m_IsKinematic
       value: 1
