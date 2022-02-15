@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class serrure : MonoBehaviour
+//using UnityEngine.XR.Interaction.Toolkit;
+
+public class serrure : MonoBehaviour//XRBaseInteractable
 {
 
     public GameObject door;
@@ -26,7 +28,7 @@ public class serrure : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
       Debug.Log("start serrure");
 
@@ -44,18 +46,12 @@ public class serrure : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
 
-      if(Input.GetKeyDown("b")) {
 
-        if(tryingToUnlock){ camMoveAway(); }
-        else { camMoveCloser(); }
-        tryingToUnlock = !tryingToUnlock;
-        doorAnimator.SetBool("tryingToUnlock", tryingToUnlock);
 
-        Debug.Log("tryingToUnlock="+tryingToUnlock);
-      }
+      if(Input.GetKeyDown("b")) { TryingToUnlock(); }
     }
 
 
@@ -65,7 +61,7 @@ public class serrure : MonoBehaviour
       open();
     }
 
-    void open(){
+    public void open(){
       Debug.Log("open");
       isOpen   = doorAnimator.GetBool("isOpen");
       isLocked = doorAnimator.GetBool("isLocked");
@@ -80,8 +76,17 @@ public class serrure : MonoBehaviour
 
         Debug.Log("a:"+(isOpen));
         Debug.Log("b:"+doorAnimator.GetBool("isOpen"));
-      }
+      } else { TryingToUnlock(); }
     }
+
+    public void TryingToUnlock(){
+      if(tryingToUnlock){ camMoveAway(); }
+      else { camMoveCloser(); }
+      tryingToUnlock = !tryingToUnlock;
+      doorAnimator.SetBool("tryingToUnlock", tryingToUnlock);
+
+      Debug.Log("tryingToUnlock="+tryingToUnlock);
+     }
 
     void camMoveAway(){
       Debug.Log("camMoveAway");
@@ -90,11 +95,29 @@ public class serrure : MonoBehaviour
     }
     void camMoveCloser(){
       Debug.Log("camMoveCloser");
-      perso.transform.position = transform.position + new Vector3(-0.3f, -2.0f, 0.0f);
+      perso.transform.position = transform.position + new Vector3(-0.7f, -2.0f, 0.0f);
       perso.transform.localEulerAngles = new Vector3(0f, 90f, 0f);
     }
 
 
+/*
+    void OnHoverEnter(){
+      //base.OnEnable();
+      rend.material.color = color_over;
+    }
+
+    void OnHoverExit(){
+      //base.OnDisable();
+      rend.material.color = initColor;
+    }
+*/
+
+/*
+    void OnSelectEnter() {
+      rend.material.color = Color.red;
+      tryingToUnlock= true;
+    }
+*/
 /*
     void OnMouseExit() {
         rend.material.color = initColor;
