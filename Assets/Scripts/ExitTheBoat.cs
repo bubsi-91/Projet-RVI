@@ -6,7 +6,7 @@ public class ExitTheBoat : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.name == "XR Rig") {
-            SceneManager.LoadScene("boat");
+            SceneManager.LoadScene("EndGame");
         }
     }
 
