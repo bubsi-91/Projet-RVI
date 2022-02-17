@@ -9,7 +9,7 @@ public class PaddleMovement : MonoBehaviour
     public Transform controllerTransform;
     public float clampX, clampY, clampZ;
 
-    private Vector3 initialRotation;
+    public Vector3 initialRotation;
 
     public Vector3 coefficient;
 
@@ -20,10 +20,16 @@ public class PaddleMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        Vector3 notClamped = new Vector3(
+            controllerTransform.localRotation.eulerAngles.x * coefficient.x,
+            controllerTransform.localRotation.eulerAngles.y * coefficient.y,
+            controllerTransform.localRotation.eulerAngles.z * coefficient.z);
+        Debug.Log("notClamped: " +notClamped.ToString("F4"));
         Vector3 newRotation = new Vector3(
-            Mathf.Clamp(controllerTransform.localRotation.eulerAngles.x * coefficient.x, initialRotation.x - clampX, initialRotation.x + clampX),
-            Mathf.Clamp(controllerTransform.localRotation.eulerAngles.y * coefficient.y, initialRotation.y - clampY, initialRotation.y + clampY),
-            Mathf.Clamp(controllerTransform.localRotation.eulerAngles.z * coefficient.z, initialRotation.z - clampZ, initialRotation.z + clampZ));
+            Mathf.Clamp(notClamped.x, initialRotation.x - clampX, initialRotation.x + clampX),
+            Mathf.Clamp(notClamped.y, initialRotation.y - clampY, initialRotation.y + clampY),
+            Mathf.Clamp(notClamped.z, initialRotation.z - clampZ, initialRotation.z + clampZ));
+        Debug.Log("Clamped: " + newRotation.ToString("F4"));
 
         paddleTransform.localEulerAngles = newRotation;
     }

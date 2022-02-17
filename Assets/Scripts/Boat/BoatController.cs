@@ -41,10 +41,11 @@ public class BoatController : MonoBehaviour
             currentSpeed = 0;
         }
         pathFollower.speed = currentSpeed;
-        Debug.Log(pathFollower.speed);
+        //Debug.Log(pathFollower.speed);
     }
     public void AddForwardForce(float forwardVelocity)
     {
+        //Debug.Log("In addforwardforce: " + forwardVelocity);
         if(Math.Abs(currentSpeed) < maxSpeed)
         {
             currentSpeed += forwardVelocity;
@@ -55,7 +56,7 @@ public class BoatController : MonoBehaviour
     {
         if (other.CompareTag("WaterMovement"))
         {
-            AddForwardForce(Vector3.Dot(ObjVelocity, forwardTransform.position.normalized) / -100);
+            AddForwardForce(Vector3.Dot(ObjVelocity, forwardTransform.position.normalized) * -100);
         }
     }
 }
