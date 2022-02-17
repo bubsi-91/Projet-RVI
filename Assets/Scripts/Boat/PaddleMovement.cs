@@ -15,7 +15,7 @@ public class PaddleMovement : MonoBehaviour
 
     private void Start()
     {
-        initialRotation = paddleTransform.eulerAngles;
+        initialRotation = paddleTransform.localRotation.eulerAngles;
     }
 
     void FixedUpdate()
@@ -25,6 +25,6 @@ public class PaddleMovement : MonoBehaviour
             Mathf.Clamp(controllerTransform.localRotation.eulerAngles.y * coefficient.y, initialRotation.y - clampY, initialRotation.y + clampY),
             Mathf.Clamp(controllerTransform.localRotation.eulerAngles.z * coefficient.z, initialRotation.z - clampZ, initialRotation.z + clampZ));
 
-        paddleTransform.eulerAngles = newRotation;
+        paddleTransform.localEulerAngles = newRotation;
     }
 }

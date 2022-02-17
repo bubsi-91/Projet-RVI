@@ -296,14 +296,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213657034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.72, y: 0.37757063, z: 15.568}
+  m_LocalRotation: {x: -0, y: -0.70952576, z: -0, w: 0.7046795}
+  m_LocalPosition: {x: -1.36, y: 0.37757063, z: -0.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4412262715765246566}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.393, z: 0}
 --- !u!114 &213657036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +463,7 @@ MonoBehaviour:
   pathFollower: {fileID: 213657036}
   slowdownSpeed: 0.175
   maxSpeed: 1.5
-  forwardTransform: {fileID: 0}
+  forwardTransform: {fileID: 213657035}
 --- !u!4 &543142745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2021216369894382330, guid: 8c452cf4abddfc44181be4d2ebd3b23b, type: 3}
@@ -922,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
       propertyPath: coefficient.x
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2077519336537144306, guid: 0922af09aefcec64c9d7167663801bf2, type: 3}
       propertyPath: coefficient.y
