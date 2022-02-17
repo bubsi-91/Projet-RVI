@@ -4,13 +4,20 @@ using UnityEngine.UI;
 public class ExitBoatManager : MonoBehaviour
 {
 
+    GameObject exit;
+    void Start() {
+        exit = GameObject.Find("GoToNextSceneZone");
+        exit.SetActive(false);
+    }
+
     public void desactivateExit() {
-        //GameObject.Find("GoToNextSceneZone").SetActive(false);
+        exit.SetActive(false);
     }
 
     public void activateExit() {
 
-        //GameObject.Find("GoToNextSceneZone").SetActive(true);
+        //GameObject.Find("Zone").GetComponent<Renderer>().enabled = true;
+        exit.SetActive(true);
 
         //PRINTING CANVA
         GameObject GoToNextSceneText;
