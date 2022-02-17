@@ -22,8 +22,9 @@ public class PaddleMovement : MonoBehaviour
     {
         Vector3 notClamped = new Vector3(
             (controllerTransform.localRotation.eulerAngles.x > 180 ? controllerTransform.localRotation.eulerAngles.x - 360 : controllerTransform.localRotation.eulerAngles.x) * coefficient.x,
-            (controllerTransform.localRotation.eulerAngles.y > 180 ? controllerTransform.localRotation.eulerAngles.y - 360 : controllerTransform.localRotation.eulerAngles.y) * coefficient.y,
-            (controllerTransform.localRotation.eulerAngles.z > 180 ? controllerTransform.localRotation.eulerAngles.z - 360 : controllerTransform.localRotation.eulerAngles.z) * coefficient.z);
+            (controllerTransform.localRotation.eulerAngles.z > 180 ? controllerTransform.localRotation.eulerAngles.z - 360 : controllerTransform.localRotation.eulerAngles.z) * coefficient.z,
+            (controllerTransform.localRotation.eulerAngles.y > 180 ? controllerTransform.localRotation.eulerAngles.y - 360 : controllerTransform.localRotation.eulerAngles.y) * coefficient.y
+            );
         //Debug.Log("notClamped: " + notClamped.ToString("F4"));
         Vector3 newRotation = new Vector3(
             Mathf.Clamp(notClamped.x, initialRotation.x - clampX, initialRotation.x + clampX),

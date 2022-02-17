@@ -45,6 +45,7 @@ public class BoatController : MonoBehaviour
     }
     public void AddForwardForce(float forwardVelocity)
     {
+        if (forwardVelocity < 0) return;
         Debug.Log("In addforwardforce: " + forwardVelocity);
         if (Math.Abs(currentSpeed) < maxSpeed)
         {
