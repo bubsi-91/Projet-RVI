@@ -9,7 +9,7 @@ public class LockPick : MonoBehaviour
   private float thisRotInitX;
 
   private Animator doorAnimator;
-
+  private AudioSource audio;
 
   public float maxAngle = 85;
 
@@ -23,6 +23,7 @@ public class LockPick : MonoBehaviour
   void Start(){
     Debug.Log("start lockpick");
     doorAnimator= door.GetComponent<Animator>();
+    audio = GetComponent<AudioSource>();
 
     newLock();
   }
@@ -44,7 +45,9 @@ public class LockPick : MonoBehaviour
     Debug.Log("eulerAngle:"+eulerAngle);
     if(unlockRange[0]<eulerAngle && eulerAngle<unlockRange[1]){
       Debug.Log("Now Unlocked");
+      if(doorAnimator.GetBool("isLocked")) audio.Play(0);
       doorAnimator.SetBool("isLocked",false);
+
     }
   }
 
