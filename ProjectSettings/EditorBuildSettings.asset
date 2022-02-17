@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/prison.unity
+    guid: 0def04c31afec9744a73702f9e42b238
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 2356368c134507d4f98b285d5aede25f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 22a8fed503efc9f429b80b233607c230, type: 2}
