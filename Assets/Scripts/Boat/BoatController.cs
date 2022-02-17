@@ -11,8 +11,24 @@ public class BoatController : MonoBehaviour
     public float slowdownSpeed = 0.03f;
     public float maxSpeed = 1.5f;
 
+    Vector3 PrevPos;
+    Vector3 NewPos;
+    Vector3 ObjVelocity;
+    public Transform forwardTransform;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        PrevPos = transform.position;
+        NewPos = transform.position;
+    }
+
+
     void FixedUpdate()
     {
+        NewPos = transform.position;  // each frame track the new position
+        ObjVelocity = (NewPos - PrevPos) / Time.fixedDeltaTime;  // velocity = dist/time
+        PrevPos = NewPos;  // update position for next frame calculation
         //slowdown
         if (Math.Abs(currentSpeed) > 0.005)
         {
@@ -27,14 +43,19 @@ public class BoatController : MonoBehaviour
         pathFollower.speed = currentSpeed;
         Debug.Log(pathFollower.speed);
     }
-
-    public enum PaddleOrientation { Right, Left }
-
-    public void AddForce(float forwardVelocity)
+    public void AddForwardForce(float forwardVelocity)
     {
         if(Math.Abs(currentSpeed) < maxSpeed)
         {
             currentSpeed += forwardVelocity;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("WaterMovement"))
+        {
+            AddForwardForce(Vector3.Dot(ObjVelocity, forwardTransform.position.normalized) / -100);
         }
     }
 }
