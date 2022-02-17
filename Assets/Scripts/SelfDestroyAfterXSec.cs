@@ -5,7 +5,7 @@ using UnityEngine;
 public class SelfDestroyAfterXSec : MonoBehaviour
 {
     
-    public float delay;
+    public float delay = 5;
     
     // Start is called before the first frame update
     void Start()

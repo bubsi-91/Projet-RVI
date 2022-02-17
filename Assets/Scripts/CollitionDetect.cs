@@ -10,10 +10,12 @@ public class CollitionDetect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
 
+        if (other.name == "XR Rig") {
 
-        Debug.Log("Player detected");
+            Debug.Log("Player detected");
 
-        GameOver();
+            GameOver();
+        }
     }
 
     private void GameOver() {
@@ -45,9 +47,9 @@ public class CollitionDetect : MonoBehaviour
 
         // Text position
         rectTransform = text.GetComponent<RectTransform>();
-        rectTransform.localPosition = new Vector3(150, -250, 0);
+        rectTransform.localPosition = new Vector3(10, -250, 0);
         rectTransform.sizeDelta = new Vector2(600, 100);
-
+        rectTransform.localScale = new Vector3(1,1,1);
 
         //STOP THE CHARACTER ANIMATION
         GameObject.Find("Character_A_Full_Leather_4").GetComponent<Animator>().SetBool("isIdle", true);
