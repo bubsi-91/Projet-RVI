@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class serrure : MonoBehaviour//XRBaseInteractable
 {
@@ -15,12 +15,6 @@ public class serrure : MonoBehaviour//XRBaseInteractable
 
     private Animator doorAnimator;
 
-/*
-    private Renderer rend;
-    public Color color_over = Color.red;
-    public Color initColor;
-    public Color color_angle = Color.blue;
-*/
     private bool tryingToUnlock;
 
     private bool isOpen;
@@ -38,11 +32,6 @@ public class serrure : MonoBehaviour//XRBaseInteractable
       posPersoInit= perso.transform.position;
       rotPersoInit= perso.transform.localEulerAngles;
 
-
-/*
-      rend = GetComponent<Renderer>();
-      initColor = rend.material.color;
-*/
     }
 
     // Update is called once per frame
@@ -74,6 +63,9 @@ public class serrure : MonoBehaviour//XRBaseInteractable
 
         Debug.Log("a:"+(isOpen));
         Debug.Log("b:"+doorAnimator.GetBool("isOpen"));
+
+        GameObject.Find("Floor_A (3)").AddComponent<TeleportationArea>();
+
       } else { TryingToUnlock(); }
     }
 
@@ -90,6 +82,7 @@ public class serrure : MonoBehaviour//XRBaseInteractable
       //Debug.Log("camMoveAway");
       perso.transform.position = posPersoInit;
       perso.transform.localEulerAngles = rotPersoInit;
+      doorAnimator.SetBool("tryingToUnlock", false); 
     }
     void camMoveCloser(){
       //Debug.Log("camMoveCloser");
@@ -98,30 +91,4 @@ public class serrure : MonoBehaviour//XRBaseInteractable
     }
 
 
-/*
-    void OnHoverEnter(){
-      //base.OnEnable();
-      rend.material.color = color_over;
-    }
-
-    void OnHoverExit(){
-      //base.OnDisable();
-      rend.material.color = initColor;
-    }
-*/
-
-/*
-    void OnSelectEnter() {
-      rend.material.color = Color.red;
-      tryingToUnlock= true;
-    }
-*/
-/*
-    void OnMouseExit() {
-        rend.material.color = initColor;
-    }
-    void OnMouseOver() {
-        rend.material.color = color_over;
-    }
-*/
 }
