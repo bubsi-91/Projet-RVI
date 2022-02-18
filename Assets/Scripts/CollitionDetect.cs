@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
 
 public class CollitionDetect : MonoBehaviour
@@ -25,7 +26,10 @@ public class CollitionDetect : MonoBehaviour
 
     private IEnumerator GameOverRoutine() 
     {
-        
+
+        //Disabling tp
+        Destroy(GameObject.Find("Floor").GetComponent("Teleportation Area"));
+
         //PRINTING CANVA
         GameObject GameOverText;
         Text text;

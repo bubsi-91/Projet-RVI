@@ -46,7 +46,7 @@ public class LockPick : MonoBehaviour
     if(unlockRange[0]<eulerAngle && eulerAngle<unlockRange[1]){
       Debug.Log("Now Unlocked");
       doorAnimator.SetBool("isLocked",false);
-      if(doorAnimator.GetBool("isLocked")) audio.Play(0);
+      if(!doorAnimator.GetBool("isLocked")) audio.Play(0);
     }
   }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class serrure : MonoBehaviour//XRBaseInteractable
 {
@@ -63,6 +63,9 @@ public class serrure : MonoBehaviour//XRBaseInteractable
 
         Debug.Log("a:"+(isOpen));
         Debug.Log("b:"+doorAnimator.GetBool("isOpen"));
+
+        GameObject.Find("Floor_A (3)").AddComponent<TeleportationArea>();
+
       } else { TryingToUnlock(); }
     }
 
