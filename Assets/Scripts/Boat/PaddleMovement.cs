@@ -26,12 +26,12 @@ public class PaddleMovement : MonoBehaviour
             (controllerTransform.localRotation.eulerAngles.y > 180 ? controllerTransform.localRotation.eulerAngles.y - 360 : controllerTransform.localRotation.eulerAngles.y) * coefficient.y
             );
         //Debug.Log("notClamped: " + notClamped.ToString("F4"));
-        Vector3 newRotation = new Vector3(
-            Mathf.Clamp(notClamped.x, initialRotation.x - clampX, initialRotation.x + clampX),
-            Mathf.Clamp(notClamped.y, initialRotation.y - clampY, initialRotation.y + clampY),
-            Mathf.Clamp(notClamped.z, initialRotation.z - clampZ, initialRotation.z + clampZ));
+        //Vector3 newRotation = new Vector3(
+        //    Mathf.Clamp(notClamped.x, initialRotation.x - clampX, initialRotation.x + clampX),
+        //    Mathf.Clamp(notClamped.y, initialRotation.y - clampY, initialRotation.y + clampY),
+        //    Mathf.Clamp(notClamped.z, initialRotation.z - clampZ, initialRotation.z + clampZ));
         //Debug.Log("Clamped: " + newRotation.ToString("F4"));
 
-        paddleTransform.localEulerAngles = newRotation;
+        paddleTransform.localEulerAngles = notClamped;
     }
 }
