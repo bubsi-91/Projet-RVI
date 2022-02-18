@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
 
 public class CollitionDetect : MonoBehaviour
@@ -10,10 +11,12 @@ public class CollitionDetect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
 
+        if (other.name == "XR Rig") {
 
-        Debug.Log("Player detected");
+            Debug.Log("Player detected");
 
-        GameOver();
+            GameOver();
+        }
     }
 
     private void GameOver() {
@@ -23,40 +26,34 @@ public class CollitionDetect : MonoBehaviour
 
     private IEnumerator GameOverRoutine() 
     {
-        
-        //PRINTING CANVA
 
-        GameObject myGO;
-        GameObject myText;
-        Canvas myCanvas;
+        //Disabling tp
+        Destroy(GameObject.Find("Floor").GetComponent("Teleportation Area"));
+
+        //PRINTING CANVA
+        GameObject GameOverText;
         Text text;
         RectTransform rectTransform;
 
-        // Canvas
-        myGO = new GameObject();
-        myGO.name = "GameOverCanva";
-        myGO.AddComponent<Canvas>();
-
-        myCanvas = myGO.GetComponent<Canvas>();
-        myCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        myGO.AddComponent<CanvasScaler>();
-        myGO.AddComponent<GraphicRaycaster>();
+        // Canva
+        Canvas UICanva = GameObject.Find("UICanva").GetComponent<Canvas>();
 
         // Text
-        myText = new GameObject();
-        myText.transform.parent = myGO.transform;
-        myText.name = "Game Over";
+        GameOverText = new GameObject();
+        GameOverText.transform.parent = UICanva.transform;
+        GameOverText.name = "Game Over";
 
-        text = myText.AddComponent<Text>();
+        text = GameOverText.AddComponent<Text>();
         text.text = "Un fugitif ! Attrapez le !";
-        text.fontSize = 50;
+        text.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        text.fontSize = 30;
         text.color = Color.white;
 
         // Text position
         rectTransform = text.GetComponent<RectTransform>();
-        rectTransform.localPosition = new Vector3(0, 0, 0);
-        rectTransform.sizeDelta = new Vector2(6000, 150);
-
+        rectTransform.localPosition = new Vector3(10, -250, 0);
+        rectTransform.sizeDelta = new Vector2(600, 100);
+        rectTransform.localScale = new Vector3(1,1,1);
 
         //STOP THE CHARACTER ANIMATION
         GameObject.Find("Character_A_Full_Leather_4").GetComponent<Animator>().SetBool("isIdle", true);

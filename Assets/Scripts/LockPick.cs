@@ -8,8 +8,10 @@ public class LockPick : MonoBehaviour
   public GameObject pick;
   private float thisRotInitX;
 
+  private Animator doorAnimator;
+  private AudioSource audio;
 
-  public float maxAngle = 90;
+  public float maxAngle = 85;
 
   //[Range(1,25)]
   public float lockRange = 10;
@@ -20,15 +22,18 @@ public class LockPick : MonoBehaviour
 
   void Start(){
     Debug.Log("start lockpick");
+    doorAnimator= door.GetComponent<Animator>();
+    audio = GetComponent<AudioSource>();
 
     newLock();
   }
 
   // Update is called once per frame
   void Update(){
-    updatePosPick();
-    if(door.GetComponent<Animator>().GetBool("tryingToUnlock"))
+    if(doorAnimator.GetBool("tryingToUnlock")){
+      updatePosPick();
       unlock();
+    }
 
 
   }
@@ -40,7 +45,8 @@ public class LockPick : MonoBehaviour
     Debug.Log("eulerAngle:"+eulerAngle);
     if(unlockRange[0]<eulerAngle && eulerAngle<unlockRange[1]){
       Debug.Log("Now Unlocked");
-      door.GetComponent<Animator>().SetBool("isLocked",false);
+      doorAnimator.SetBool("isLocked",false);
+      if(!doorAnimator.GetBool("isLocked")) audio.Play(0);
     }
   }
 
@@ -49,25 +55,37 @@ public class LockPick : MonoBehaviour
 
     Debug.Log("Parent"+transform.localEulerAngles+transform.eulerAngles);
     Debug.Log("Pick"+pick.transform.localEulerAngles+pick.transform.eulerAngles);
+    Debug.Log(transform.localEulerAngles.x);
 
     thisRotInitX = transform.localEulerAngles.x;
     eulerAngle = pick.transform.localEulerAngles.y;
 
+    if(thisRotInitX>180) thisRotInitX= thisRotInitX-360;
+    if(eulerAngle>180) eulerAngle= eulerAngle-360;
+
+
+    Debug.Log("thisRotInitX"+thisRotInitX);
+    Debug.Log("eulerAngle"+eulerAngle);
+
+
+
 /*
     bool tmp = true;
     if(tmp) {
-      eulerAngle= 20;
+      eulerAngle= -45;
       tmp= false;
     }
 */
 
     float mod= (-eulerAngle-thisRotInitX);
-    transform.Rotate(mod, 0f, 0f);//eulerAngles.x = eulerAngle;
+    if((eulerAngle>-maxAngle) && (eulerAngle<maxAngle)){
+      transform.Rotate(mod, 0f, 0f);//eulerAngles.x = eulerAngle;
+    }
 
   }
 
   void newLock(){
-    unlockAngle = 0;//Random.Range(-maxAngle + lockRange, maxAngle - lockRange);
+    unlockAngle = Random.Range(-maxAngle + lockRange, maxAngle - lockRange);
     unlockRange = new Vector2(unlockAngle - lockRange, unlockAngle + lockRange);
 
     Debug.Log("unlockRange:"+unlockRange);
